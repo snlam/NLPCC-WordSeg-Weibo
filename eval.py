@@ -11,6 +11,13 @@ In Proceedings of Annual Meeting of the Association for Computational Linguistic
 @author: Peng
 """
 
+"""
+How to use this file:
+establish a new folder named as 'submissions' under this directory, put the file need to be evaluated into it,
+the file should ends with suffix 'close'
+
+while the answer to the test set is absent in this project, if you want to apply for it, please contact us.
+"""
 
 import numpy as np
 
@@ -60,7 +67,7 @@ def evaluate_word_PRF(y_pred,y):
                     flag = False
                 if flag:
                     for k in range(start,j):
-                        if y_pred[i][k] == 'E' or y_pred[i][k] == 'S':
+                        if y_pred[i][j] != y[i][j]:
                             flag = False
                             break
                     if flag:
@@ -104,7 +111,7 @@ def  evaluate_word_weightedPRF2(y_pred,y,weight,weight_c):
                     flag = False
                 if flag:
                     for k in range(start,j):
-                        if y_pred[i][k] == 'E' or y_pred[i][k] == 'S':
+                        if y_pred[i][j] != y[i][j]:
                             flag = False
                             break
                     if flag:
@@ -170,12 +177,12 @@ def seg2BMES(path):
 weight, weight_c = load_word_weight()
 
 dataset = 'nlpcc2016test'
-test_sents = seg2BMES('nlpcc2016test_ans.dat'.decode('utf-8'))
+test_sents = seg2BMES('nlpcc2016-wordseg-test_ans.dat'.decode('utf-8'))
 print dataset,len(test_sents), 'testing samples'
 
 y_test = [sent2labels(s) for s in test_sents]
 
-submissions = ['bju','byu-1','byu-2','cys','whu-lstm','zzu-dre','zzu-re']
+submissions = ['submission-test']
 for sub in submissions:
     pred_sents = seg2BMES('submissions/'.decode('utf-8')+sub+'.close')
     y_pred = [sent2labels(s) for s in pred_sents]
