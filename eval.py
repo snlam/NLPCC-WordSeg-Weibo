@@ -67,7 +67,7 @@ def evaluate_word_PRF(y_pred,y):
                     flag = False
                 if flag:
                     for k in range(start,j):
-                        if y_pred[i][j] != y[i][j]:
+                        if y_pred[i][k] != y[i][k]:
                             flag = False
                             break
                     if flag:
@@ -107,7 +107,7 @@ def  evaluate_word_weightedPRF2(y_pred,y,weight,weight_c):
                     punishment += (1-weight_c[i][j])
             if y[i][j] == 'E' or y[i][j] == 'S':
                 flag = True
-                if y_pred[i][j] != y[i][j]:
+                if y_pred[i][k] != y[i][k]:
                     flag = False
                 if flag:
                     for k in range(start,j):
