@@ -19,11 +19,25 @@ The data are collected from Sina Weibo. Both the training and test files are UTF
 
 ## Evaluation Metric
 
-Different with the standard precision, recall, F1-score, we will provide a new measure metric this year. The detailed metric will be available when we release the training and test datasets.
+Different with the standard precision, recall, F1-score, we will provide a new measure metric this year.  The detailed information can be found in http://aclweb.org/anthology/P/P16/P16-1206.pdf .
 
 ## Papers
 
 1. Peng Qian, Xipeng Qiu, Xuanjing Huang, A New Psychometric-inspired Evaluation Metric for Chinese Word Segmentation, In Proceedings of Annual Meeting of the Association for Computational Linguistics (ACL), 2016. [[PDF\]](http://aclweb.org/anthology/P/P16/P16-1206.pdf)
+2. Xipeng Qiu, Peng Qian, Zhan Shi, Overview of the NLPCC-ICCPOL 2016 Shared Task: Chinese Word Segmentation for Micro-blog Texts, In Proceedings of The Fifth Conference on Natural Language Processing and Chinese Computing & The Twenty Fourth International Conference on Computer Processing of Oriental Languages, 2016.
+
+## Citation
+
+```
+@InProceedings{qiu2016overview,
+  Title                    = {Overview of the {NLPCC-ICCPOL} 2016 Shared Task: Chinese Word Segmentation for Micro-blog Texts},
+  Author                   = {Xipeng Qiu and Peng Qian and Zhan Shi},
+  Booktitle                = {Proceedings of The Fifth Conference on Natural Language Processing and Chinese Computing \& The Twenty Fourth
+International Conference on Computer Processing of Oriental Languages},
+  Year                     = {2016}
+}
+
+```
 
 ## Contact Information
 
