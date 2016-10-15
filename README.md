@@ -17,6 +17,14 @@ Each participant will be allowed to submit the three runs: closed track run, sem
 
 The data are collected from Sina Weibo. Both the training and test files are UTF-8 encoded. Besides the training data, we also provide the background data, from which the training and test data are drawn. The purpose of providing the background data is to find the more sophisticated features by the unsupervised way.
 
+#### Download
+
+The dataset provides a standard training/dev/test split. The training and dev parts can be downloaded from this repository. The test data can be obtained by sending a request email to us. 
+Specifically, the researchers interested in the dataset should download and fill up this [Agreement Form](https://github.com/FudanNLP/NLPCC-WordSeg-Weibo/blob/master/FDU_agreement_form.pdf) and send the scanned version back to  Xipeng Qiu (xpqiu@fudan.edu.cn; Email title: Fudan Micro-blog Dataset data request).
+We will then send you the download instructions at our discretion.
+
+本数据集提供标准的训练集/开发集/测试集分割。如果您希望获取本数据集，可以从本仓库下载训练集和开发集。测试集需要您给我们发一份 [使用协议](https://github.com/FudanNLP/NLPCC-WordSeg-Weibo/blob/master/FDU_agreement_form.pdf)。请签名后扫描，将扫描的协议书发给我们 (邮件地址：xpqiu@fudan.edu.cn; 邮件主题: 复旦微博数据集申请)。我们审核同意后会回复下载方法。
+
 ## Evaluation Metric
 
 Different with the standard precision, recall, F1-score, we will provide a new measure metric this year.  The detailed information can be found in http://aclweb.org/anthology/P/P16/P16-1206.pdf .
