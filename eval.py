@@ -24,14 +24,14 @@ import numpy as np
 
 
 def load_word_weight():
-    f = open('nlpcc2016-wordseg-test-ans.weight','r')
+    f = open('datasets/nlpcc2016-wordseg-test-ans.weight','r')
     weight = f.readlines()
     weight = [line.strip().split() for line in weight]
     for i in range(len(weight)):
         for j in range(len(weight[i])):
             weight[i][j] = float(weight[i][j])      
     f.close()
-    f = open('nlpcc2016-wordseg-test-ans.weight_c','r')
+    f = open('datasets/nlpcc2016-wordseg-test-ans.weight_c','r')
     weight_c = f.readlines()
     weight_c = [line.strip().split() for line in weight_c]
     for i in range(len(weight_c)):
@@ -177,17 +177,17 @@ def seg2BMES(path):
 weight, weight_c = load_word_weight()
 
 dataset = 'nlpcc2016test'
-test_sents = seg2BMES('nlpcc2016-wordseg-test_ans.dat'.decode('utf-8'))
-print dataset,len(test_sents), 'testing samples'
+test_sents = seg2BMES('datasets/nlpcc2016-wordseg-test-ans.dat')
+print(dataset,len(test_sents), 'testing samples')
 
 y_test = [sent2labels(s) for s in test_sents]
 
 submissions = ['submission-test']
 for sub in submissions:
-    pred_sents = seg2BMES('submissions/'.decode('utf-8')+sub+'.close')
+    pred_sents = seg2BMES('submissions/'+sub+'.close')
     y_pred = [sent2labels(s) for s in pred_sents]
-    print 'Participant:',sub
-    print 'traditional P:\t%f   R: %f   F: %f' % evaluate_word_PRF(y_pred,y_test)
+    print('Participant:',sub)
+    print('traditional P:\t%f   R: %f   F: %f' % evaluate_word_PRF(y_pred,y_test))
     P_H, P_E, R_H, R_E, P,R,F,weight_earned = evaluate_word_weightedPRF2(y_pred,y_test,weight,weight_c)
-    print 'weighted P_H:\t%f   P_E:\t%f   R_H:\t%f   R_E:\t%f   P:\t%f   R: %f   F: %f' % (P_H, P_E, R_H, R_E, P,R,F)
+    print('weighted P_H:\t%f   P_E:\t%f   R_H:\t%f   R_E:\t%f   P:\t%f   R: %f   F: %f' % (P_H, P_E, R_H, R_E, P,R,F))
 
