@@ -156,10 +156,10 @@ def BMES2seg(y, path2):
     f.close()
 
 def seg2BMES(path):
-    f = open(path,'r')
+    f = open(path,'r', encoding='utf-8')
     seg = f.readlines()
     f.close()
-    seg  =[line.strip().decode('utf-8').split() for line in seg]
+    seg  =[line.strip().split() for line in seg]
     rs = []
     for sent in seg:
         sent_label = []
