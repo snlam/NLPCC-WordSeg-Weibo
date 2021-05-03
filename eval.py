@@ -56,9 +56,9 @@ def evaluate_word_PRF(y_pred,y):
     c = 0  
     true = 0
     pos = 0
-    for i in xrange(len(y)):
+    for i in range(len(y)):
         start = 0
-        for j in xrange(len(y[i])):
+        for j in range(len(y[i])):
             if y_pred[i][j] == 'E' or y_pred[i][j] == 'S':
                 pos += 1
             if y[i][j] == 'E' or y[i][j] == 'S':
@@ -95,10 +95,10 @@ def  evaluate_word_weightedPRF2(y_pred,y,weight,weight_c):
     guess = 0
     guess2 = 0
     earned_weight = []
-    for i in xrange(len(y)):
+    for i in range(len(y)):
         start = 0
         word_index = 0
-        for j in xrange(len(y[i])):
+        for j in range(len(y[i])):
             if y_pred[i][j] == 'E' or y_pred[i][j] == 'S':
                 pos += 1
                 guess += weight_c[i][j]
@@ -140,10 +140,10 @@ def  evaluate_word_weightedPRF2(y_pred,y,weight,weight_c):
 
 def BMES2seg(y, path2):
     rs = []
-    for i in xrange(len(y)):
+    for i in range(len(y)):
         start = 0
         sent = []
-        for j in xrange(len(y[i])):
+        for j in range(len(y[i])):
             if y[i][j][1] == u'E' or y[i][j][1] == u'S':
                 word = ''.join([w for (w,t) in y[i][start:(j+1)]])
                 sent.append(word.encode('utf-8'))
@@ -181,13 +181,15 @@ test_sents = seg2BMES('datasets/nlpcc2016-wordseg-test-ans.dat')
 print(dataset,len(test_sents), 'testing samples')
 
 y_test = [sent2labels(s) for s in test_sents]
+# print("ytest: " + str(y_test))
 
 submissions = ['submission-test']
 for sub in submissions:
     pred_sents = seg2BMES('submissions/'+sub+'.close')
     y_pred = [sent2labels(s) for s in pred_sents]
+    print("y_pred: " + str(y_pred))
     print('Participant:',sub)
     print('traditional P:\t%f   R: %f   F: %f' % evaluate_word_PRF(y_pred,y_test))
-    P_H, P_E, R_H, R_E, P,R,F,weight_earned = evaluate_word_weightedPRF2(y_pred,y_test,weight,weight_c)
-    print('weighted P_H:\t%f   P_E:\t%f   R_H:\t%f   R_E:\t%f   P:\t%f   R: %f   F: %f' % (P_H, P_E, R_H, R_E, P,R,F))
+    # P_H, P_E, R_H, R_E, P,R,F,weight_earned = evaluate_word_weightedPRF2(y_pred,y_test,weight,weight_c)
+    # print('weighted P_H:\t%f   P_E:\t%f   R_H:\t%f   R_E:\t%f   P:\t%f   R: %f   F: %f' % (P_H, P_E, R_H, R_E, P,R,F))
 
